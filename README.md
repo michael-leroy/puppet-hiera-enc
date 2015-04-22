@@ -44,6 +44,18 @@ When the enc is queried for `hostname.example.com`, the result is the
 merged hash of these values:
 
     $ ./enc hostname.example.com
+    ---
+    parameters:
+      role: workstation
+    environment: production
+
+If you wish to enable hiera debug messages comment out the following lines:
+
+    config[:logger] = 'noop'
+
+Here is an example output with debug messages enabled:
+
+    $ ./enc hostname.example.com
     DEBUG: 2014-07-11 13:04:24 +0200: Hiera YAML backend starting
     DEBUG: 2014-07-11 13:04:24 +0200: Looking up parameters in YAML backend
     DEBUG: 2014-07-11 13:04:24 +0200: Looking for data source hostname.example.com
